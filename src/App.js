@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
@@ -8,10 +7,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/user-management" element={<UserManagement />} />
-        <Route path="/login" element={<Login />} /> {/* Ensure this route exists */}
+        <Route path="/" element={<Login />} />  {/* Default route */}
       </Routes>
     </Router>
   );

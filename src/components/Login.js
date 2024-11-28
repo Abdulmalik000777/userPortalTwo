@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import '../pages/Login.css'; // Correct path to Login.css in pages folder
@@ -62,7 +61,8 @@ function Login() {
         </button>
       </form>
       <p>
-        Don't have an account? <a href="/register">Register here</a>
+        Don't have an account? 
+        <button onClick={() => navigate("/register")}>Register here</button>
       </p>
     </div>
   );
