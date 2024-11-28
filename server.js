@@ -1,25 +1,27 @@
+// Import required modules
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const WebSocket = require('ws');
+require('dotenv').config();  // Load environment variables from .env file
 
 const app = express();
 const port = 5000;
 
-// Enable CORS for all origins (you can restrict this in production)
+// Enable CORS
 app.use(cors());
 
 // Parse JSON bodies
 app.use(bodyParser.json());
 
-// MySQL connection with provided credentials
+// MySQL connection using environment variables
 const db = mysql.createConnection({
-  host: 'localhost', // or your host if it's not localhost
-  user: 'root',       // or your MySQL username if different
-  password: 'abdulmalik99',  // your password
-  database: 'userPortalTwo', // make sure this matches your database name
-  port: 3306           // default MySQL port, use if necessary
+  host: process.env.DB_HOST,  // Use DB_HOST from .env file
+  user: process.env.DB_USER,  // Use DB_USER from .env file
+  password: process.env.DB_PASSWORD,  // Use DB_PASSWORD from .env file
+  database: process.env.DB_NAME,  // Use DB_NAME from .env file
+  port: process.env.DB_PORT,  // Use DB_PORT from .env file
 });
 
 // Connect to MySQL
@@ -28,7 +30,7 @@ db.connect((err) => {
     console.error('Error connecting to the database: ' + err.stack);
     return;
   }
-  console.log('Connected to the MySQL database');
+  console.log('Connected to MySQL');
 });
 
 // WebSocket server
@@ -54,7 +56,7 @@ app.get('/', (req, res) => {
   res.send('Server is running!');
 });
 
-// Users route - Added before the app.listen
+// API route to fetch users
 app.get('/users', (req, res) => {
   db.query('SELECT * FROM users', (err, results) => {
     if (err) {
@@ -104,16 +106,5 @@ app.post('/register', (req, res) => {
 
 // Start the HTTP server
 app.listen(port, () => {
-  console.log(`HTTP server running at http://localhost:${port}`);
-});
-app.get('/users', (req, res) => {
-  console.log("Fetching users...");
-  db.query('SELECT * FROM users', (err, results) => {
-    if (err) {
-      console.error("Error fetching users:", err);
-      return res.status(500).json({ message: 'Error fetching users' });
-    }
-    console.log("Fetched users:", results);  // Log the result
-    res.status(200).json({ users: results });
-  });
+  console.log(`Server running at http://localhost:${port}`);
 });
