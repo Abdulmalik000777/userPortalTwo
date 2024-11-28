@@ -1,0 +1,47 @@
+.user-management-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:nth-child(1) {
+  background-color: #f44336; /* Red for Block */
+}
+
+button:nth-child(2) {
+  background-color: #4CAF50; /* Green for Delete */
+}
+
+button:nth-child(1):hover {
+  background-color: #d32f2f;
+}
+
+button:nth-child(2):hover {
+  background-color: #388e3c;
+}
