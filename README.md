@@ -64,6 +64,14 @@ DB_USER=root
 DB_PASSWORD=yourpassword
 DB_NAME=userPortal
 DB_PORT=3306
+Backend Deployment (Not yet completed):
+
+The backend is not yet deployed but can be tested locally on your machine.
+To start the server locally, run:
+bash
+Copy code
+npm run server
+Backend deployment is still pending and will be updated once deployed on a platform like Heroku, Render, or AWS.
 Start the application:
 
 bash
@@ -77,5 +85,20 @@ The Admin Panel (user management table) is only accessible to authenticated user
 The toolbar allows for blocking, unblocking, and deleting users.
 Admins can also block/unblock themselves but can delete any user.
 Deployment
-The project can be deployed using any hosting platform such as Heroku, Vercel, or Netlify for the frontend, and Render or Heroku for the backend.
-Make sure to configure your environment variables properly on the deployment platform.
+Backend Deployment: The backend (Node.js server with Express) is not yet deployed. However, it can be run locally by starting the server as mentioned in the installation instructions.
+
+Frontend Deployment: The frontend React application can be deployed to services like Vercel, Netlify, or Heroku for a live web app. Please ensure the backend API is configured properly to be connected with the deployed frontend.
+
+
+
+Known Issues / To-Do
+Backend Deployment Pending: The backend server is yet to be deployed to a live environment. It is currently set up to run locally for testing purposes.
+Further Testing Needed: Some features such as user blocking and database interactions may require testing once the backend is deployed. The web pages are styled with the help of CSS not any framework.
+This README reflects the current state of the project, including the incomplete backend deployment. You can update the sections once the backend is deployed and everything is ready for production. Let me know if you'd like to modify any specific details or add more information!
+
+
+
+
+
+
+
